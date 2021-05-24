@@ -205,7 +205,7 @@ export const fetchHero = () => async (dispatch) => {
     {
       code: "QAR",
       name: "Qatari Riyal",
-      flagUrl: "qatal.png",
+      flagUrl: "qatar.png",
       sellId: "qar2",
       buyId: "qar1",
     },
