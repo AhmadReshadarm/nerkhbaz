@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { fetchHero } from "../actions/api";
@@ -19,8 +19,6 @@ let preCacheChartData = true;
 
 const Home = () => {
   let day = new Date().toISOString().slice(0, 10);
-  // let month = new Date().getMonth();
-  // let year = new Date().getFullYear();
   let minute = new Date().getMinutes();
   let hour = new Date().getHours();
   let apiData = useSelector((state) => state.hero);
@@ -60,10 +58,11 @@ const Home = () => {
     }
     if (preCacheChartData) {
       apiData.chartData.forEach((el, i) => {
-        prevBuyValues[i] = parseFloat(el.buyId.replace(/,/g, ""));
-        prevSellValues[i] = parseFloat(el.sellId.replace(/,/g, ""));
+        prevBuyValues[i] = parseFloat(el.sellId.replace(/,/g, ""));
+        prevSellValues[i] = parseFloat(el.buyId.replace(/,/g, ""));
       });
     }
+
     return (
       <div>
         <Header></Header>
@@ -81,13 +80,15 @@ const Home = () => {
                   </div>
                   <div className="heroValue">
                     <svg
-                      className={
-                        prevValues[index] === newValues[index]
-                          ? "same_val arrow"
-                          : prevValues[index] < newValues[index]
-                          ? "down_val arrow"
-                          : "up_val arrow"
-                      }
+                      className={(() => {
+                        if (prevValues[index] === newValues[index]) {
+                          return "same_val arrow";
+                        } else if (prevValues[index] > newValues[index]) {
+                          return "down_val arrow";
+                        } else {
+                          return "up_val arrow";
+                        }
+                      })()}
                       version="1.1"
                       id="Layer_1"
                       x="0px"
@@ -132,10 +133,10 @@ const Home = () => {
                 </tr>
                 {apiData.chartData.map((item, index) => {
                   newBuyValues[index] = parseFloat(
-                    item.buyId.replace(/,/g, "")
+                    item.sellId.replace(/,/g, "")
                   );
                   newSellValues[index] = parseFloat(
-                    item.sellId.replace(/,/g, "")
+                    item.buyId.replace(/,/g, "")
                   );
                   preCacheChartData = false;
                   return (
@@ -149,13 +150,19 @@ const Home = () => {
                       </td>
                       <td className="contentWrapper">
                         <svg
-                          className={
-                            prevSellValues[index] === newSellValues[index]
-                              ? "same_val arrow"
-                              : prevSellValues[index] < newSellValues[index]
-                              ? "down_val arrow"
-                              : "up_val arrow"
-                          }
+                          className={(() => {
+                            if (
+                              prevSellValues[index] === newSellValues[index]
+                            ) {
+                              return "same_val arrow";
+                            } else if (
+                              prevSellValues[index] > newSellValues[index]
+                            ) {
+                              return "down_val arrow";
+                            } else {
+                              return "up_val arrow";
+                            }
+                          })()}
                           version="1.1"
                           id="Layer_1"
                           x="0px"
@@ -179,13 +186,17 @@ const Home = () => {
                       </td>
                       <td style={{ border: "none" }} className="contentWrapper">
                         <svg
-                          className={
-                            prevBuyValues[index] === newBuyValues[index]
-                              ? "same_val arrow"
-                              : prevBuyValues[index] < newBuyValues[index]
-                              ? "down_val arrow"
-                              : "up_val arrow"
-                          }
+                          className={(() => {
+                            if (prevBuyValues[index] === newBuyValues[index]) {
+                              return "same_val arrow";
+                            } else if (
+                              prevBuyValues[index] > newBuyValues[index]
+                            ) {
+                              return "down_val arrow";
+                            } else {
+                              return "up_val arrow";
+                            }
+                          })()}
                           version="1.1"
                           id="Layer_1"
                           x="0px"
@@ -227,13 +238,15 @@ const Home = () => {
                   </div>
                   <div className="heroValue">
                     <svg
-                      className={
-                        prevValues[index] === newValues[index]
-                          ? "same_val arrow"
-                          : prevValues[index] < newValues[index]
-                          ? "down_val arrow"
-                          : "up_val arrow"
-                      }
+                      className={(() => {
+                        if (prevValues[index] === newValues[index]) {
+                          return "same_val arrow";
+                        } else if (prevValues[index] > newValues[index]) {
+                          return "down_val arrow";
+                        } else {
+                          return "up_val arrow";
+                        }
+                      })()}
                       version="1.1"
                       id="Layer_1"
                       x="0px"
