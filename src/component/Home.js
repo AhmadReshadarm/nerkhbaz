@@ -133,7 +133,7 @@ const Home = () => {
             <div className="dateAndTimeWrapper">
               <p>All currencies are in iranian Toman</p>
               <p>
-                Last update {hour}:{minute} - {day}
+                Last update {hour}:{minute < 10 ? "0" + minute : minute} - {day}
               </p>
             </div>
 
