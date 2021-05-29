@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import axios from "axios";
 
 import { fetchHero } from "../actions/api";
-import Header from "./utils/Header";
-import Footer from "./utils/Footer";
 import Coins from "./utils/Coins";
 import Converter from "./utils/Coverter";
 
@@ -23,11 +22,14 @@ const Home = () => {
   let hour = new Date().getHours();
   let apiData = useSelector((state) => state.hero);
   const dispatch = useDispatch();
+
+  //  first time fetch
   if (oneTime) {
     dispatch(fetchHero());
     oneTime = false;
   }
 
+  // UI logic for price changes
   for (let i = 0; i < newValues.length; i++) {
     prevValues[i] = newValues[i];
   }
@@ -38,15 +40,29 @@ const Home = () => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      return dispatch(fetchHero());
+      return dispatch(fetchHero(true));
     }, 60000);
     return () => clearInterval(intervalId);
   });
 
-  if (apiData.error) {
+  if (!apiData.isLoaded) {
+    return (
+      <div className="loadingWrapper">
+        <div className="loading-screen">
+          <div className="loading">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <p>Loading</p>
+        <h1>Nerkhbaz</h1>
+      </div>
+    );
+  } else if (apiData.error) {
     return (
       <div>
-        <Header></Header>
         <div>Error: {apiData.error.message}</div>
       </div>
     );
@@ -65,7 +81,6 @@ const Home = () => {
 
     return (
       <div>
-        <Header></Header>
         <Coins></Coins>
         <div className="heroContainer hideMobile">
           <div className="herowrapper">
@@ -273,7 +288,6 @@ const Home = () => {
           </div>
         </div>
         <Converter></Converter>
-        <Footer></Footer>
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import axios from "axios";
 import cheerio from "cheerio";
 
-export const fetchHero = () => async (dispatch) => {
+export const fetchHero = (loaded) => async (dispatch) => {
   const intialValueTop = [
     { id: "#ounce_top", name: "Gold", sub: "Ounce", unit: "$" },
     { id: "#gol18_top", name: "Gold", sub: "Gram", unit: "Toman" },
@@ -210,16 +210,18 @@ export const fetchHero = () => async (dispatch) => {
       buyId: "qar1",
     },
   ];
+  if (!loaded) {
+    dispatch({ type: "LOADING" });
+  }
 
-  dispatch({ type: "LOADING" });
-  const fetchHtml = await axios.get(
+  const fetchApi = await axios.get(
     "https://powerful-earth-64232.herokuapp.com/api/v1"
   );
   const fetchCoins = await axios.get(
     "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2Cethereum%2Ctether&order=market_cap_desc&per_page=3&page=1&sparkline=true"
   );
 
-  axios.all([fetchHtml, fetchCoins]).then(
+  axios.all([fetchApi, fetchCoins]).then(
     axios.spread((...responses) => {
       let $ = cheerio.load(responses[0].data);
 
@@ -252,37 +254,4 @@ export const fetchHero = () => async (dispatch) => {
       });
     })
   );
-
-  //   await axios
-  //     .get("http://localhost:3000/api/v1")
-  //     .then((response) => {
-  //       let $ = cheerio.load(response.data);
-  //       const allHeroData = [];
-  //       const chartData = [];
-  //       intialValueTop.forEach((item) => {
-  //         allHeroData.push({
-  //           value: $(item.id).text(),
-  //           name: item.name,
-  //           sub: item.sub,
-  //           unit: item.unit,
-  //         });
-  //       });
-
-  //       intialValueChart.forEach((item) => {
-  //         chartData.push({
-  //           code: item.code,
-  //           name: item.name,
-  //           flagUrl: item.flagUrl,
-  //           sellId: $("#" + item.sellId).text(),
-  //           buyId: $("#" + item.buyId).text(),
-  //         });
-  //       });
-
-  //       return dispatch({
-  //         type: "LOADED",
-  //         payloadHero: allHeroData,
-  //         payloadChart: chartData,
-  //       });
-  //     })
-  //     .catch((err) => dispatch({ err: err }));
 };
