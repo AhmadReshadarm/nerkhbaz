@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
 
 import { fetchHero } from "../actions/api";
 import Coins from "./utils/Coins";
