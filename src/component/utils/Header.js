@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [menuVisible, setVisible] = useState(false);
@@ -37,14 +38,14 @@ const Header = () => {
         </div>
         <nav className="menuContainer">
           <ul className="menuWprapper hideMobile">
-            <li className="menuItem">
-              <a href="./">Home</a>
+            <li style={{ border: "none" }} className="menuItem">
+              <Link to="/">Home</Link>
             </li>
             <li className="menuItem">
-              <a href="/archive">Archive</a>
+              <Link to="/policy">Privacy and policy</Link>
             </li>
             <li className="menuItem">
-              <a href="/graph">Graph</a>
+              <Link to="/disclaimer">Disclaimer</Link>
             </li>
           </ul>
           <button
@@ -90,14 +91,14 @@ const Header = () => {
             } ${menuVisible ? "menuFirtActive" : ""}`}
           >
             <ul className="menuWrapper">
-              <li className="menuItemMobile">
-                <a href="./">Home</a>
+              <li onClick={() => handleClose()} className="menuItemMobile">
+                <Link to="/">Home</Link>
               </li>
-              <li className="menuItemMobile">
-                <a href="/archive">Archive</a>
+              <li onClick={() => handleClose()} className="menuItemMobile">
+                <Link to="/policy">Privacy and policy</Link>
               </li>
-              <li className="menuItemMobile">
-                <a href="/graph">Graph</a>
+              <li onClick={() => handleClose()} className="menuItemMobile">
+                <Link to="/disclaimer">Disclaimer</Link>
               </li>
               <li
                 onClick={() => handleClose()}

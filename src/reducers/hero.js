@@ -8,6 +8,8 @@ const intialState = {
 
 const heroDataReducer = (state = intialState, action) => {
   switch (action.type) {
+    case "ERROR":
+      return { ...state, error: action.payload };
     case "LOADING":
       return { ...state, isLoaded: false };
     case "LOADED":

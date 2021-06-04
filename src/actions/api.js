@@ -221,37 +221,45 @@ export const fetchHero = (loaded) => async (dispatch) => {
     "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2Cethereum%2Ctether&order=market_cap_desc&per_page=3&page=1&sparkline=true"
   );
 
-  axios.all([fetchApi, fetchCoins]).then(
-    axios.spread((...responses) => {
-      let $ = cheerio.load(responses[0].data);
+  axios
+    .all([fetchApi, fetchCoins])
+    .then(
+      axios.spread((...responses) => {
+        let $ = cheerio.load(responses[0].data);
 
-      const allHeroData = [];
-      const chartData = [];
-      intialValueTop.forEach((item) => {
-        allHeroData.push({
-          value: $(item.id).text(),
-          name: item.name,
-          sub: item.sub,
-          unit: item.unit,
+        const allHeroData = [];
+        const chartData = [];
+        intialValueTop.forEach((item) => {
+          allHeroData.push({
+            value: $(item.id).text(),
+            name: item.name,
+            sub: item.sub,
+            unit: item.unit,
+          });
         });
-      });
 
-      intialValueChart.forEach((item) => {
-        chartData.push({
-          code: item.code,
-          name: item.name,
-          flagUrl: item.flagUrl,
-          sellId: $("#" + item.sellId).text(),
-          buyId: $("#" + item.buyId).text(),
+        intialValueChart.forEach((item) => {
+          chartData.push({
+            code: item.code,
+            name: item.name,
+            flagUrl: item.flagUrl,
+            sellId: $("#" + item.sellId).text(),
+            buyId: $("#" + item.buyId).text(),
+          });
         });
-      });
 
-      return dispatch({
-        type: "LOADED",
-        payloadHero: allHeroData,
-        payloadChart: chartData,
-        payloadCoins: responses[1].data,
+        return dispatch({
+          type: "LOADED",
+          payloadHero: allHeroData,
+          payloadChart: chartData,
+          payloadCoins: responses[1].data,
+        });
+      })
+    )
+    .catch((err) => {
+      dispatch({
+        type: "ERROR",
+        payload: err,
       });
-    })
-  );
+    });
 };

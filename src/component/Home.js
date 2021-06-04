@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { ReactComponent as NoteFound } from "./utils/404.svg";
 
 import { fetchHero } from "../actions/api";
+
+// components
 import Coins from "./utils/Coins";
 import Converter from "./utils/Coverter";
 
@@ -63,6 +66,7 @@ const Home = () => {
     return (
       <div>
         <div>Error: {apiData.error.message}</div>
+        <NoteFound />
       </div>
     );
   } else {
@@ -79,7 +83,7 @@ const Home = () => {
     }
 
     return (
-      <div>
+      <div className="bodyContentWrapper">
         <Coins></Coins>
         <div className="heroContainer hideMobile">
           <div className="herowrapper">
