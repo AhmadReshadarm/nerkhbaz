@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   const date = new Date();
   const year = date.getFullYear();
+
+  const [displayNone, setDisplay] = useState("none");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 380) {
+      setDisplay("block");
+    } else {
+      setDisplay("none");
+    }
+  });
+
   return (
     <div className="footerContainer">
       <div className="footerWrapper">
@@ -65,6 +76,11 @@ const Footer = () => {
         </ul>
       </div>
       <p className="copyright">copyright {year} Nerkhbaz </p>
+      <div style={{ display: displayNone }} className="back-to-top">
+        <a title="Back to top" href="#back_to_top">
+          <img src="arrow_up.png" alt="back to the top" />
+        </a>
+      </div>
     </div>
   );
 };

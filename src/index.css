@@ -662,6 +662,25 @@ input[type="number"] {
   font-size: 14px;
 }
 
+/* Back to top arrow */
+
+.back-to-top {
+  display: none;
+  opacity: 0.3;
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
+  z-index: 4;
+}
+
+.back-to-top a img {
+  width: 45px;
+}
+
+.back-to-top:hover {
+  opacity: 1;
+}
+
 /* Media quary for mobile */
 
 @media only screen and (max-width: 1024px) {
@@ -873,6 +892,21 @@ input[type="number"] {
   }
   .hideDesktop {
     display: flex;
+  }
+
+  /* Back to top arrow */
+
+  .back-to-top {
+    display: none;
+    opacity: 0.3;
+    position: fixed;
+    bottom: 15px;
+    right: 20px;
+    z-index: 4;
+  }
+
+  .back-to-top a img {
+    width: 35px;
   }
 }
 

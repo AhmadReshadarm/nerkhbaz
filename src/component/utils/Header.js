@@ -30,7 +30,7 @@ const Header = () => {
   }
 
   return (
-    <div className="headerContainer">
+    <div id="back_to_top" className="headerContainer">
       <div className="headerWrapper">
         <div className="logoWrapper">
           <img src="nerkhbaz_logo.png" alt="Nikex logo"></img>
