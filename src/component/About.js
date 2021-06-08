@@ -8,7 +8,7 @@ const About = () => {
           <div className="aboutHeroTextWrapper">
             <h1>The Heart of the money exchange rate market community</h1>
             <p>
-              we are on a mission to provide the community an ease on echanging
+              we are on a mission to provide the community an ease on exchanging
               money
             </p>
           </div>
