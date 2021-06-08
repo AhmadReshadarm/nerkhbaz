@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Header from "./component/utils/Header";
@@ -8,8 +8,16 @@ import Policy from "./component/Policy";
 import NoteFound from "./component/NotFound";
 import Disclaimar from "./component/Desclimar";
 import About from "./component/About";
+// import TRACKING_CODE from "./App.config";
+import ReactGa from "react-ga";
+// import { fetchHero } from "../actions/api";
+// import { useDispatch } from "react-redux";
 
 function App() {
+  useEffect(() => {
+    ReactGa.initialize("G-S3K47SFFB6");
+    ReactGa.pageview(window.location.pathname + window.location.search);
+  }, []);
   return (
     <Router>
       <div className="bodyWrapper">
