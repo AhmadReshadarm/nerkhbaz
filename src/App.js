@@ -7,6 +7,7 @@ import Home from "./component/Home";
 import Policy from "./component/Policy";
 import NoteFound from "./component/NotFound";
 import Disclaimar from "./component/Desclimar";
+import About from "./component/About";
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
           </Route>
           <Route path="/disclaimer">
             <Disclaimar />
+          </Route>
+          <Route path="/about_us">
+            <About />
           </Route>
           <Route path="*">
             <NoteFound />

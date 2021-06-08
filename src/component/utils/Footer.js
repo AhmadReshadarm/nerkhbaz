@@ -18,6 +18,13 @@ const Footer = () => {
   return (
     <div className="footerContainer">
       <div className="footerWrapper">
+        <div className="logCopyright hideMobile">
+          <div className="footerLogoWrapper">
+            <img src="nerkhbaz_logo.png" alt="Nikex logo"></img>
+            <p>Iranian live exchange rate </p>
+          </div>
+          <p className="copyright">copyright {year} Nerkhbaz </p>
+        </div>
         <ul className="linksWrapper">
           <li className="linksItem">
             <Link to="/">Home</Link>
@@ -40,42 +47,14 @@ const Footer = () => {
             <Link to="/advertising">Advertising</Link>
           </li>
         </ul>
-        <ul className="socialWrapper">
-          <li className="socialItem">
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://facebook.com"
-            >
-              <img src="facebook.svg" alt="social facebook"></img>
-            </a>
-          </li>
-          <li className="socialItem">
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://instagram.com"
-            >
-              <img src="instagram.svg" alt="social instagram"></img>
-            </a>
-          </li>
-          <li className="socialItem">
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://twitter.com"
-            >
-              <img src="twitter.svg" alt="social twitter"></img>
-            </a>
-          </li>
-          <li className="socialItem">
-            <a href="mailto:support@nerkhbaz.com">
-              <img src="envelope.png" alt="contact icon"></img>
-            </a>
-          </li>
-        </ul>
       </div>
-      <p className="copyright">copyright {year} Nerkhbaz </p>
+      <div className="logCopyright hideDesktop">
+        <div className="footerLogoWrapper">
+          <img src="nerkhbaz_logo.png" alt="Nikex logo"></img>
+          <p>Iranian live exchange rate </p>
+        </div>
+        <p className="copyright">copyright {year} Nerkhbaz </p>
+      </div>
       <div style={{ display: displayNone }} className="back-to-top">
         <a title="Back to top" href="#back_to_top">
           <img src="arrow_up.png" alt="back to the top" />

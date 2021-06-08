@@ -397,10 +397,6 @@ input[type="number"] {
   width: 25px;
 }
 
-.hideDesktop {
-  display: none;
-}
-
 .onlyMobile {
   display: none;
 }
@@ -492,6 +488,7 @@ input[type="number"] {
 }
 
 .footerWrapper {
+  padding: 40px 0;
   width: 100%;
   max-width: 90%;
   display: grid;
@@ -681,7 +678,289 @@ input[type="number"] {
   opacity: 1;
 }
 
+/* footer logo  */
+
+.logCopyright {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  place-items: flex-start;
+}
+
+.footerLogoWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  place-items: flex-start;
+}
+
+.footerLogoWrapper img {
+  width: 200px;
+}
+
+.footerLogoWrapper p {
+  color: #fff;
+  font-size: 14px;
+}
+
+.hideDesktop {
+  display: none;
+}
+
+/* about page  */
+
+.aboutContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 70px 0;
+}
+
+.aboutWrapper {
+  width: 100%;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 80px;
+}
+
+.aboutHeroWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  place-items: center;
+}
+.aboutHeroTextWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.aboutHeroTextWrapper h1 {
+  font-size: 50px;
+  color: #53354a;
+}
+
+.aboutHeroTextWrapper p {
+  color: #575a89;
+}
+
+.aboutHeroWrapper img {
+  width: 500px;
+}
+.aboutDescription {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 130px 0px;
+}
+
+.aboutDecriptionText {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.aboutDecriptionText h2 {
+  font-size: 30px;
+  color: #333333;
+}
+
+.aboutDecriptionText p {
+  color: #777777;
+}
+
+.figureWrapper {
+  width: 50%;
+}
+
+.shot_img img {
+  width: 180px;
+}
+
+.figureTransition:hover {
+  z-index: 5;
+  transform: translateY(-10px);
+  transition: 400ms ease-out;
+}
+.figureTransition {
+  transition: 400ms ease-out;
+}
+
+.figureItem_1 {
+  position: absolute;
+  width: 250px;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #fdfdfd;
+  right: 80px;
+  top: 45rem;
+  box-shadow: 0 0 7px 0px rgb(0 0 0 / 15%);
+  z-index: 3;
+}
+
+.figureItem_2 {
+  position: absolute;
+  width: 250px;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #903749;
+  right: 305px;
+  top: 50rem;
+  box-shadow: 0 0 7px 0px rgb(0 0 0 / 15%);
+  z-index: 2;
+}
+
+.figureItem_3 {
+  position: absolute;
+  width: 250px;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #e84545;
+  right: 400px;
+  top: 40rem;
+  box-shadow: 0 0 7px 0px rgb(0 0 0 / 15%);
+  z-index: 1;
+}
+
+.figureItem_4 {
+  position: absolute;
+  width: 500px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #fff;
+  right: 110px;
+  top: 55rem;
+  box-shadow: 0 0 7px 0px rgb(0 0 0 / 15%);
+  animation: reveal 5s infinite ease-out;
+}
+
+.figureItem_4 p {
+  font-size: 14px;
+  color: #53354a;
+  opacity: 0;
+  animation: textReveal 5s infinite ease-out;
+}
+
+@keyframes textReveal {
+  0% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes reveal {
+  0% {
+    background-color: #fff;
+  }
+  25% {
+    background-color: #fff;
+  }
+  50% {
+    background-color: #eeeeee;
+  }
+  75% {
+    background-color: #eeeeee;
+  }
+  90% {
+    background-color: #eeeeee;
+  }
+  100% {
+    background-color: #fff;
+  }
+}
+
+.figureItem_4 img {
+  width: 400px;
+  transform: scale(0.5);
+  opacity: 0;
+  animation: logoReveal 5s infinite ease-in-out;
+}
+
+@keyframes logoReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+    border-radius: 50%;
+  }
+  25% {
+    transform: scale(1);
+    opacity: 1;
+    border-radius: 0;
+  }
+  35% {
+    transform: translateY(-10px) scale(1);
+    opacity: 1;
+    border-radius: 0;
+  }
+  50% {
+    transform: translateY(-10px) scale(1);
+    opacity: 1;
+    border-radius: 0;
+  }
+  90% {
+    transform: translateY(-10px) scale(1);
+    opacity: 1;
+    border-radius: 0;
+  }
+
+  99% {
+    transform: translateY(-10px) scale(1);
+    opacity: 0;
+    border-radius: 0;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+    border-radius: 50%;
+  }
+}
+
 /* Media quary for mobile */
+/*  */
+/*  */
+/*  */
+/*  */
 
 @media only screen and (max-width: 1024px) {
   body {
@@ -691,6 +970,11 @@ input[type="number"] {
     justify-content: center;
     align-items: center;
     gap: 20px;
+  }
+
+  .logCopyright {
+    width: 100%;
+    max-width: 90%;
   }
 
   .logoWrapper img {
@@ -907,6 +1191,76 @@ input[type="number"] {
 
   .back-to-top a img {
     width: 35px;
+  }
+
+  /* about page mobile */
+
+  .aboutHeroWrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .aboutHeroTextWrapper h1 {
+    font-size: 30px;
+  }
+
+  .aboutDecriptionText h2 {
+    font-size: 20px;
+  }
+
+  .aboutHeroWrapper img {
+    width: 300px;
+  }
+
+  .aboutDescription {
+    width: 100%;
+    flex-direction: column;
+    padding: 60px 0px;
+    padding-bottom: 300px;
+  }
+
+  .aboutDecriptionText {
+    width: 100%;
+  }
+
+  .figureWrapper {
+    width: 100%;
+  }
+
+  .shot_img img {
+    width: 100px;
+  }
+
+  .figureItem_1 {
+    width: 180px;
+    height: 130px;
+    right: 12px;
+    top: 70rem;
+  }
+
+  .figureItem_2 {
+    width: 180px;
+    height: 130px;
+    right: 140px;
+    top: 72rem;
+  }
+
+  .figureItem_3 {
+    width: 180px;
+    height: 130px;
+    right: 190px;
+    top: 67rem;
+  }
+
+  .figureItem_4 {
+    width: 300px;
+    height: 150px;
+    right: 42px;
+    top: 78rem;
+  }
+
+  .figureItem_4 img {
+    width: 200px;
   }
 }
 
