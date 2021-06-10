@@ -27,6 +27,10 @@ const About = () => {
               Founded in 2020, Nerkbaz is a noneprofitable website for whom
               wants to gather information about the market exchange rate.
             </p>
+            <p>
+              for further inquiries contact us by email at{" "}
+              <a href="mailto:support@nerkhbaz.com">support@nerkhbaz.com</a>.
+            </p>
           </div>
           <figure className="figureWrapper">
             <figure className="figureItem_1 shot_img figureTransition">

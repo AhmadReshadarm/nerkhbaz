@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { ReactComponent as NoteFound } from "./utils/404.svg";
+import { Link } from "react-router-dom";
 
 import { fetchHero } from "../actions/api";
 
@@ -161,7 +162,8 @@ const Home = () => {
                     <tr key={index} className="currenciesWrapper">
                       <td className="contentWrapper">
                         <img src={item.flagUrl} alt="flag"></img>
-                        <p>{item.code}</p>
+
+                        <Link to={`/${item.code}`}>{item.code}</Link>
                       </td>
                       <td className="contentWrapper">
                         <p>{item.name}</p>
