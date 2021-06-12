@@ -18,14 +18,12 @@ const Footer = () => {
   return (
     <div className="footerContainer">
       <div className="footerWrapper">
-        <div className="logCopyright hideMobile">
-          <div className="footerLogoWrapper">
-            <img src="nerkhbaz_logo.png" alt="Nikex logo"></img>
-            <p>Iranian live exchange rate </p>
-          </div>
-          <p className="copyright">copyright {year} Nerkhbaz </p>
+        <div className="footerLogoWrapper">
+          <img src="nerkhbaz_logo.png" alt="Nikex logo"></img>
+          <p>Iranian live exchange rate </p>
+          <p className="copyright hideMobile">copyright {year} Nerkhbaz </p>
         </div>
-        <ul className="linksWrapper">
+        <ul className="linksWrapper hideMobile">
           <li className="linksItem">
             <Link to="/">Home</Link>
           </li>
@@ -36,7 +34,7 @@ const Footer = () => {
             <Link to="/about_us">About Us</Link>
           </li>
         </ul>
-        <ul className="policyWrapper">
+        <ul className="policyWrapper hideMobile">
           <li className="policyItem">
             <Link to="/disclaimer">Disclaimer</Link>
           </li>
@@ -47,13 +45,31 @@ const Footer = () => {
             <Link to="/advertising">Advertising</Link>
           </li>
         </ul>
-      </div>
-      <div className="logCopyright hideDesktop">
-        <div className="footerLogoWrapper">
-          <img src="nerkhbaz_logo.png" alt="Nikex logo"></img>
-          <p>Iranian live exchange rate </p>
-        </div>
-        <p className="copyright">copyright {year} Nerkhbaz </p>
+        <nav className="navWrapper hideDesktop">
+          <ul className="linksWrapper">
+            <li className="linksItem">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="linksItem">
+              <Link to="/archive">Archive</Link>
+            </li>
+            <li className="linksItem">
+              <Link to="/about_us">About Us</Link>
+            </li>
+          </ul>
+          <ul className="policyWrapper">
+            <li className="policyItem">
+              <Link to="/disclaimer">Disclaimer</Link>
+            </li>
+            <li className="policyItem">
+              <Link to="/policy">Privacy and policy</Link>
+            </li>
+            <li className="policyItem">
+              <Link to="/advertising">Advertising</Link>
+            </li>
+          </ul>
+        </nav>
+        <p className="copyright hideDesktop">copyright {year} Nerkhbaz </p>
       </div>
       <div style={{ display: displayNone }} className="back-to-top">
         <a title="Back to top" href="#back_to_top">

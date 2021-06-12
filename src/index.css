@@ -393,6 +393,11 @@ input[type="number"] {
   color: #393e46;
 }
 
+.contentWrapper a {
+  padding: 0 5px;
+  color: #393e46;
+}
+
 .contentWrapper img {
   width: 25px;
 }
@@ -688,6 +693,7 @@ input[type="number"] {
 }
 
 .footerLogoWrapper {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -695,7 +701,7 @@ input[type="number"] {
 }
 
 .footerLogoWrapper img {
-  width: 200px;
+  width: 180px;
 }
 
 .footerLogoWrapper p {
@@ -715,7 +721,7 @@ input[type="number"] {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 70px 0;
+  padding: 100px 0;
 }
 
 .aboutWrapper {
@@ -784,6 +790,7 @@ input[type="number"] {
 
 .figureWrapper {
   width: 50%;
+  position: relative;
 }
 
 .shot_img img {
@@ -810,7 +817,7 @@ input[type="number"] {
   border-radius: 10px;
   background-color: #fdfdfd;
   right: 80px;
-  top: 45rem;
+  top: -10rem;
   box-shadow: 0 0 7px 0px rgb(0 0 0 / 15%);
   z-index: 3;
 }
@@ -826,7 +833,7 @@ input[type="number"] {
   border-radius: 10px;
   background-color: #903749;
   right: 305px;
-  top: 50rem;
+  top: -5rem;
   box-shadow: 0 0 7px 0px rgb(0 0 0 / 15%);
   z-index: 2;
 }
@@ -841,8 +848,8 @@ input[type="number"] {
   align-items: center;
   border-radius: 10px;
   background-color: #e84545;
-  right: 400px;
-  top: 40rem;
+  right: 355px;
+  top: -12rem;
   box-shadow: 0 0 7px 0px rgb(0 0 0 / 15%);
   z-index: 1;
 }
@@ -857,8 +864,8 @@ input[type="number"] {
   align-items: center;
   border-radius: 10px;
   background-color: #fff;
-  right: 110px;
-  top: 55rem;
+  right: 100px;
+  top: 2rem;
   box-shadow: 0 0 7px 0px rgb(0 0 0 / 15%);
   animation: reveal 5s infinite ease-out;
 }
@@ -1154,8 +1161,10 @@ input[type="number"] {
   }
 
   .footerWrapper {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
   }
 
   .linksItem {
@@ -1191,6 +1200,14 @@ input[type="number"] {
 
   .back-to-top a img {
     width: 35px;
+  }
+
+  .navWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
   /* about page mobile */
@@ -1234,29 +1251,29 @@ input[type="number"] {
   .figureItem_1 {
     width: 180px;
     height: 130px;
-    right: 12px;
-    top: 70rem;
+    right: 0;
+    top: 4rem;
   }
 
   .figureItem_2 {
     width: 180px;
     height: 130px;
-    right: 140px;
-    top: 72rem;
+    right: 120px;
+    top: 10rem;
   }
 
   .figureItem_3 {
     width: 180px;
     height: 130px;
-    right: 190px;
-    top: 67rem;
+    right: 160px;
+    top: 4rem;
   }
 
   .figureItem_4 {
     width: 300px;
     height: 150px;
-    right: 42px;
-    top: 78rem;
+    right: 20px;
+    top: 16rem;
   }
 
   .figureItem_4 img {

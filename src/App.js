@@ -8,10 +8,7 @@ import Policy from "./component/Policy";
 import NoteFound from "./component/NotFound";
 import Disclaimar from "./component/Desclimar";
 import About from "./component/About";
-// import TRACKING_CODE from "./App.config";
 import ReactGa from "react-ga";
-// import { fetchHero } from "../actions/api";
-// import { useDispatch } from "react-redux";
 
 function App() {
   useEffect(() => {
