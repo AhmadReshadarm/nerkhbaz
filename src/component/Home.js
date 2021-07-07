@@ -77,14 +77,14 @@ const Home = () => {
     }
     if (preCacheChartData) {
       apiData.chartData.forEach((el, i) => {
-        prevBuyValues[i] = parseFloat(el.sellId.replace(/,/g, ""));
-        prevSellValues[i] = parseFloat(el.buyId.replace(/,/g, ""));
+        prevBuyValues[i] = parseFloat(el.buyId.replace(/,/g, ""));
+        prevSellValues[i] = parseFloat(el.sellId.replace(/,/g, ""));
       });
     }
 
     return (
       <div className="bodyContentWrapper">
-        <Coins></Coins>
+        <Coins />
         <div className="heroContainer hideMobile">
           <div className="herowrapper">
             {apiData.heroData.map((item, index) => {
@@ -151,17 +151,17 @@ const Home = () => {
                 </tr>
                 {apiData.chartData.map((item, index) => {
                   newBuyValues[index] = parseFloat(
-                    item.sellId.replace(/,/g, "")
+                    item.buyId.replace(/,/g, "")
                   );
                   newSellValues[index] = parseFloat(
-                    item.buyId.replace(/,/g, "")
+                    item.sellId.replace(/,/g, "")
                   );
                   preCacheChartData = false;
                   return (
                     <tr key={index} className="currenciesWrapper">
                       <td className="contentWrapper">
                         <img src={item.flagUrl} alt="flag"></img>
-                        <p>{item.code}</p>
+                        <a href={`/${item.code}`}>{item.code}</a>
                       </td>
                       <td className="contentWrapper">
                         <p>{item.name}</p>
@@ -200,7 +200,7 @@ const Home = () => {
                             </g>
                           </g>
                         </svg>
-                        <span>{item.buyId}</span>
+                        <span>{item.sellId}</span>
                       </td>
                       <td style={{ border: "none" }} className="contentWrapper">
                         <svg
@@ -234,7 +234,7 @@ const Home = () => {
                             </g>
                           </g>
                         </svg>
-                        <span>{item.sellId}</span>
+                        <span>{item.buyId}</span>
                       </td>
                     </tr>
                   );
@@ -290,7 +290,7 @@ const Home = () => {
             })}
           </div>
         </div>
-        <Converter></Converter>
+        <Converter />
       </div>
     );
   }

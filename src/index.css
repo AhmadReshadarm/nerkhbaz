@@ -963,6 +963,15 @@ input[type="number"] {
   }
 }
 
+/*  graph page style */
+
+.priceCodeWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Media quary for mobile */
 /*  */
 /*  */

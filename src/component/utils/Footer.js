@@ -28,7 +28,7 @@ const Footer = () => {
             <Link to="/">Home</Link>
           </li>
           <li className="linksItem">
-            <Link to="/archive">Archive</Link>
+            <Link to="/USD">Graph</Link>
           </li>
           <li className="linksItem">
             <Link to="/about_us">About Us</Link>
@@ -51,7 +51,7 @@ const Footer = () => {
               <Link to="/">Home</Link>
             </li>
             <li className="linksItem">
-              <Link to="/archive">Archive</Link>
+              <Link to="/USD">Graph</Link>
             </li>
             <li className="linksItem">
               <Link to="/about_us">About Us</Link>

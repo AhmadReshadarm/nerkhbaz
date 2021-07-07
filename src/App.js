@@ -8,6 +8,7 @@ import Policy from "./component/Policy";
 import NoteFound from "./component/NotFound";
 import Disclaimar from "./component/Desclimar";
 import About from "./component/About";
+import GraphPage from "./component/GraphPage";
 import ReactGa from "react-ga";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
     ReactGa.initialize("UA-199112654-1");
     ReactGa.pageview(window.location.pathname + window.location.search);
   }, []);
+
   return (
     <Router>
       <div className="bodyWrapper">
@@ -31,6 +33,9 @@ function App() {
           </Route>
           <Route path="/about_us">
             <About />
+          </Route>
+          <Route path={"/:id"}>
+            <GraphPage />
           </Route>
           <Route path="*">
             <NoteFound />
