@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import logo from "../../assets/images/nerkhbaz_logo.png";
+import arrow_up from "../../assets/images/arrow_up.png";
 
 const Footer = () => {
   const date = new Date();
@@ -19,8 +21,10 @@ const Footer = () => {
     <div className="footerContainer">
       <div className="footerWrapper">
         <div className="footerLogoWrapper">
-          <img src="nerkhbaz_logo.png" alt="Nikex logo"></img>
-          <p>Iranian live exchange rate </p>
+          <Link to="/">
+            <img src={logo} alt="Nikex logo" />
+            <p>Iranian live exchange rate </p>
+          </Link>
           <p className="copyright hideMobile">copyright {year} Nerkhbaz </p>
         </div>
         <ul className="linksWrapper hideMobile">
@@ -28,7 +32,7 @@ const Footer = () => {
             <Link to="/">Home</Link>
           </li>
           <li className="linksItem">
-            <Link to="/USD">Graph</Link>
+            <Link to="/graph/USD">Graph</Link>
           </li>
           <li className="linksItem">
             <Link to="/about_us">About Us</Link>
@@ -42,7 +46,7 @@ const Footer = () => {
             <Link to="/policy">Privacy and policy</Link>
           </li>
           <li className="policyItem">
-            <Link to="/advertising">Advertising</Link>
+            <Link to="/ads">Advertising</Link>
           </li>
         </ul>
         <nav className="navWrapper hideDesktop">
@@ -51,7 +55,7 @@ const Footer = () => {
               <Link to="/">Home</Link>
             </li>
             <li className="linksItem">
-              <Link to="/USD">Graph</Link>
+              <Link to="/graph/USD">Graph</Link>
             </li>
             <li className="linksItem">
               <Link to="/about_us">About Us</Link>
@@ -73,7 +77,7 @@ const Footer = () => {
       </div>
       <div style={{ display: displayNone }} className="back-to-top">
         <a title="Back to top" href="#back_to_top">
-          <img src="arrow_up.png" alt="back to the top" />
+          <img src={arrow_up} alt="back to the top" />
         </a>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as NoteFoundSvg } from "./utils/404.svg";
+import { ReactComponent as NoteFoundSvg } from "../assets/images/404.svg";
 import { Link } from "react-router-dom";
 
 const NoteFound = () => {

@@ -8,23 +8,24 @@ let j = 0;
 
 //  helper function
 function _case(dataSets, dataSetsType, sliceAmount, indexIncreaser) {
+  allDatapoints = [];
+  datapoints = [];
   for (let i = 0; i < dataSets.length; i = i + indexIncreaser) {
-    if (dataSetsType === "sell") {
+    if (dataSetsType === "Sell") {
       allDatapoints.push(dataSets[i].sellId);
     } else {
       allDatapoints.push(dataSets[i].buyId);
     }
   }
-  console.log(dataSets[0]);
 
-  datapoints = allDatapoints.slice(-sliceAmount);
+  datapoints = allDatapoints.slice(-25).reverse();
   labels = DATA_COUNT;
 
   const data = (canvas) => {
     let gradientColor = canvas
       .getContext("2d")
       .createLinearGradient(0, 0, 0, 200);
-    gradientColor.addColorStop(0.5, "#FF2270");
+    gradientColor.addColorStop(0.3, "#FF2270");
     gradientColor.addColorStop(1, "#9787FF");
     return {
       labels: labels,
@@ -53,14 +54,15 @@ export const graphConfig =
     if (evtInput === "period") {
       switch (evtValue) {
         case "24":
-          j = 24;
+          j = 1;
           DATA_COUNT = [];
           for (let i = 0; i < 24; i++) {
+            if (i === 0) {
+              DATA_COUNT[0] = "now";
+            }
             DATA_COUNT.push(`Past ${j}hr`);
-            j--;
+            j++;
           }
-
-          DATA_COUNT.push("Now");
 
           return dispatch({
             type: intialValue.dataSetType,
@@ -68,13 +70,15 @@ export const graphConfig =
           });
 
         case "week":
-          j = 7;
+          j = 1;
           DATA_COUNT = [];
           for (let i = 0; i < 7; i++) {
+            if (i === 0) {
+              DATA_COUNT[0] = "Today";
+            }
             DATA_COUNT.push(`past ${j} days`);
-            j--;
+            j++;
           }
-          DATA_COUNT.push("Today");
 
           return dispatch({
             type: intialValue.dataSetType,
@@ -82,28 +86,61 @@ export const graphConfig =
           });
 
         case "1_month":
-          j = 30;
+          j = 1;
           DATA_COUNT = [];
           for (let i = 0; i < 30; i++) {
+            if (i === 0) {
+              DATA_COUNT[0] = "Today";
+            }
             DATA_COUNT.push(`past ${j} days`);
-            j--;
+            j++;
           }
-          DATA_COUNT.push("Today");
 
           return dispatch({
             type: intialValue.dataSetType,
             payload: _case(dataSets, intialValue.dataSetType, 31, 24),
           });
-
-        default:
-          j = 24;
+        case "6_month":
+          j = 1;
           DATA_COUNT = [];
-          for (let i = 0; i < 24; i++) {
-            DATA_COUNT.push(`Past ${j}hr`);
-            j--;
+          for (let i = 0; i < 180; i++) {
+            if (i === 0) {
+              DATA_COUNT[0] = "Today";
+            }
+            DATA_COUNT.push(`past ${j} days`);
+            j++;
           }
 
-          DATA_COUNT.push("Now");
+          return dispatch({
+            type: intialValue.dataSetType,
+            payload: _case(dataSets, intialValue.dataSetType, 181, 24),
+          });
+        case "year":
+          j = 1;
+          DATA_COUNT = [];
+          for (let i = 0; i < 360; i++) {
+            if (i === 0) {
+              DATA_COUNT[0] = "Today";
+            }
+            DATA_COUNT.push(`past ${j} days`);
+            j++;
+          }
+
+          return dispatch({
+            type: intialValue.dataSetType,
+            payload: _case(dataSets, intialValue.dataSetType, 361, 24),
+          });
+
+        default:
+          j = 1;
+          DATA_COUNT = [];
+          for (let i = 0; i < 24; i++) {
+            if (i === 0) {
+              DATA_COUNT[0] = "now";
+            }
+            DATA_COUNT.push(`Past ${j}hr`);
+            j++;
+          }
 
           return dispatch({
             type: intialValue.dataSetType,
@@ -114,14 +151,15 @@ export const graphConfig =
 
     switch (intialValue.period) {
       case "24":
-        j = 24;
+        j = 1;
         DATA_COUNT = [];
         for (let i = 0; i < 24; i++) {
+          if (i === 0) {
+            DATA_COUNT[0] = "now";
+          }
           DATA_COUNT.push(`Past ${j}hr`);
-          j--;
+          j++;
         }
-
-        DATA_COUNT.push("Now");
 
         return dispatch({
           type: intialValue.dataSetType,
@@ -129,13 +167,15 @@ export const graphConfig =
         });
 
       case "week":
-        j = 7;
+        j = 1;
         DATA_COUNT = [];
         for (let i = 0; i < 7; i++) {
+          if (i === 0) {
+            DATA_COUNT[0] = "Today";
+          }
           DATA_COUNT.push(`past ${j} days`);
-          j--;
+          j++;
         }
-        DATA_COUNT.push("Today");
 
         return dispatch({
           type: intialValue.dataSetType,
@@ -143,32 +183,65 @@ export const graphConfig =
         });
 
       case "1_month":
-        j = 30;
+        j = 1;
         DATA_COUNT = [];
         for (let i = 0; i < 30; i++) {
+          if (i === 0) {
+            DATA_COUNT[0] = "Today";
+          }
           DATA_COUNT.push(`past ${j} days`);
-          j--;
+          j++;
         }
-        DATA_COUNT.push("Today");
 
         return dispatch({
           type: intialValue.dataSetType,
           payload: _case(dataSets, evtValue, 31, 24),
         });
-
-      default:
-        j = 24;
+      case "6_month":
+        j = 1;
         DATA_COUNT = [];
-        for (let i = 0; i < 24; i++) {
-          DATA_COUNT.push(`Past ${j}hr`);
-          j--;
+        for (let i = 0; i < 180; i++) {
+          if (i === 0) {
+            DATA_COUNT[0] = "Today";
+          }
+          DATA_COUNT.push(`past ${j} days`);
+          j++;
         }
-
-        DATA_COUNT.push("Now");
 
         return dispatch({
           type: intialValue.dataSetType,
-          payload: _case(dataSets, "sell", 25, 1),
+          payload: _case(dataSets, evtValue, 181, 24),
+        });
+      case "year":
+        j = 1;
+        DATA_COUNT = [];
+        for (let i = 0; i < 360; i++) {
+          if (i === 0) {
+            DATA_COUNT[0] = "Today";
+          }
+          DATA_COUNT.push(`past ${j} days`);
+          j++;
+        }
+
+        return dispatch({
+          type: intialValue.dataSetType,
+          payload: _case(dataSets, evtValue, 361, 24),
+        });
+
+      default:
+        j = 1;
+        DATA_COUNT = [];
+        for (let i = 0; i < 24; i++) {
+          if (i === 0) {
+            DATA_COUNT[0] = "now";
+          }
+          DATA_COUNT.push(`Past ${j}hr`);
+          j++;
+        }
+
+        return dispatch({
+          type: intialValue.dataSetType,
+          payload: _case(dataSets, "Sell", 25, 1),
         });
     }
   };

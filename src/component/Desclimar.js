@@ -1,4 +1,5 @@
 import React from "react";
+import SmallGraph from "./utils/SmallGraph";
 
 const Desclimar = () => {
   return (
@@ -28,6 +29,7 @@ const Desclimar = () => {
           advisor before making any investment decisions.
         </p>
       </div>
+      <SmallGraph />
     </div>
   );
 };

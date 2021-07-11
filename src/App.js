@@ -9,6 +9,7 @@ import NoteFound from "./component/NotFound";
 import Disclaimar from "./component/Desclimar";
 import About from "./component/About";
 import GraphPage from "./component/GraphPage";
+import Ads from "./component/Ads";
 import ReactGa from "react-ga";
 
 function App() {
@@ -34,7 +35,10 @@ function App() {
           <Route path="/about_us">
             <About />
           </Route>
-          <Route path={"/:id"}>
+          <Route path="/ads">
+            <Ads />
+          </Route>
+          <Route path={"/graph/:id"}>
             <GraphPage />
           </Route>
           <Route path="*">

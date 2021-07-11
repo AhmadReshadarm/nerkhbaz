@@ -2,15 +2,19 @@ import axios from "axios";
 import cheerio from "cheerio";
 import { intialValueChart, intialValueTop } from "../intials";
 
-export const fetchHero = (loaded) => async (dispatch) => {
+export const fetchHero = (loaded, source) => async (dispatch) => {
   if (!loaded) {
     dispatch({ type: "LOADING" });
   }
   // online connecton
   // "https://powerful-earth-64232.herokuapp.com/api/v1"
-  const fetchApi = await axios.get("http://localhost:5000/api/v1");
+  const fetchApi = await axios.get(
+    "https://powerful-earth-64232.herokuapp.com/api/v1",
+    { cancelToken: source.token }
+  );
   const fetchCoins = await axios.get(
-    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2Cethereum%2Ctether&order=market_cap_desc&per_page=3&page=1&sparkline=true"
+    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2Cethereum%2Ctether&order=market_cap_desc&per_page=3&page=1&sparkline=true",
+    { cancelToken: source.token }
   );
 
   axios
@@ -49,6 +53,8 @@ export const fetchHero = (loaded) => async (dispatch) => {
       })
     )
     .catch((err) => {
+      if (axios.isCancel(err)) {
+      }
       dispatch({
         type: "ERROR",
         payload: err,

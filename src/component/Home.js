@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
+import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
+import SmallGraph from "./utils/SmallGraph";
 import { ReactComponent as NoteFound } from "./utils/404.svg";
 
 import { fetchHero } from "../actions/api";
@@ -8,7 +10,6 @@ import { fetchHero } from "../actions/api";
 import Coins from "./utils/Coins";
 import Converter from "./utils/Coverter";
 
-let oneTime = true;
 let preCacheData = true;
 let prevValues = [];
 let newValues = [];
@@ -17,6 +18,7 @@ let prevSellValues = [];
 let newBuyValues = [];
 let newSellValues = [];
 let preCacheChartData = true;
+const width = window.innerWidth;
 
 const Home = () => {
   let day = new Date().toISOString().slice(0, 10);
@@ -26,10 +28,12 @@ const Home = () => {
   const dispatch = useDispatch();
 
   //  first time fetch
-  if (oneTime) {
-    dispatch(fetchHero());
-    oneTime = false;
-  }
+  useEffect(() => {
+    const CancelToken = axios.CancelToken;
+    const source = CancelToken.source();
+    dispatch(fetchHero(false, source));
+    return () => source.cancel();
+  }, []);
 
   // UI logic for price changes
   for (let i = 0; i < newValues.length; i++) {
@@ -41,8 +45,10 @@ const Home = () => {
   }
 
   useEffect(() => {
+    const CancelToken = axios.CancelToken;
+    const source = CancelToken.source();
     const intervalId = setInterval(() => {
-      return dispatch(fetchHero(true));
+      return dispatch(fetchHero(true, source));
     }, 60000);
     return () => clearInterval(intervalId);
   });
@@ -146,6 +152,7 @@ const Home = () => {
                 <tr className="info">
                   <td>Code</td>
                   <td>Currency</td>
+                  <td>Graph - Sell price</td>
                   <td>Sell</td>
                   <td style={{ border: "none" }}>Buy</td>
                 </tr>
@@ -161,10 +168,15 @@ const Home = () => {
                     <tr key={index} className="currenciesWrapper">
                       <td className="contentWrapper">
                         <img src={item.flagUrl} alt="flag"></img>
-                        <a href={`/${item.code}`}>{item.code}</a>
+                        <a href={`/graph/${item.code}`}>{item.code}</a>
                       </td>
                       <td className="contentWrapper">
                         <p>{item.name}</p>
+                      </td>
+                      <td className="contentWrapper">
+                        <a href={`/graph/${item.code}`}>
+                          <SmallGraph width={width} code={item.code} />
+                        </a>
                       </td>
                       <td className="contentWrapper">
                         <svg
@@ -290,7 +302,7 @@ const Home = () => {
             })}
           </div>
         </div>
-        <Converter />
+        <Converter></Converter>
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import logo from "../../assets/images/nerkhbaz_logo.png";
 
 const Header = () => {
   const [menuVisible, setVisible] = useState(false);
@@ -33,8 +34,10 @@ const Header = () => {
     <div id="back_to_top" className="headerContainer">
       <div className="headerWrapper">
         <div className="logoWrapper">
-          <img src="nerkhbaz_logo.png" alt="Nikex logo"></img>
-          <p>Iranian live exchange rate </p>
+          <Link to="/">
+            <img src={logo} alt="Nikex logo"></img>
+            <p>Iranian live exchange rate </p>
+          </Link>
         </div>
         <nav className="menuContainer">
           <ul className="menuWprapper hideMobile">
@@ -45,7 +48,7 @@ const Header = () => {
               <Link to="/policy">Privacy and policy</Link>
             </li>
             <li className="menuItem">
-              <Link to="/disclaimer">Disclaimer</Link>
+              <Link to="/graph/USD">Graph</Link>
             </li>
           </ul>
           <button
@@ -98,7 +101,7 @@ const Header = () => {
                 <Link to="/policy">Privacy and policy</Link>
               </li>
               <li onClick={() => handleClose()} className="menuItemMobile">
-                <Link to="/disclaimer">Disclaimer</Link>
+                <Link to="/graph/USD">Graph</Link>
               </li>
               <li
                 onClick={() => handleClose()}

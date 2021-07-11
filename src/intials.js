@@ -16,6 +16,7 @@ export const intialValueChart = [
     flagUrl: "usa.png",
     sellId: "usd1",
     buyId: "usd2",
+    max: 30000,
   },
   {
     code: "EUR",
@@ -23,6 +24,7 @@ export const intialValueChart = [
     flagUrl: "euro.png",
     sellId: "eur1",
     buyId: "eur2",
+    max: 32000,
   },
   {
     code: "GBP",
@@ -30,6 +32,7 @@ export const intialValueChart = [
     flagUrl: "uk.png",
     sellId: "gbp1",
     buyId: "gbp2",
+    max: 34900,
   },
   {
     code: "RUB",
@@ -37,6 +40,7 @@ export const intialValueChart = [
     flagUrl: "russia.png",
     sellId: "rub1",
     buyId: "rub2",
+    max: 500,
   },
   {
     code: "TRY",
@@ -44,6 +48,7 @@ export const intialValueChart = [
     flagUrl: "turkey.png",
     sellId: "try1",
     buyId: "try2",
+    max: 31000,
   },
   {
     code: "CNY",
@@ -51,6 +56,7 @@ export const intialValueChart = [
     flagUrl: "china.png",
     sellId: "cny1",
     buyId: "cny2",
+    max: 41000,
   },
   {
     code: "AED",
@@ -58,6 +64,7 @@ export const intialValueChart = [
     flagUrl: "uae.png",
     sellId: "aed1",
     buyId: "aed2",
+    max: 7000,
   },
   {
     code: "CHF",
@@ -65,6 +72,7 @@ export const intialValueChart = [
     flagUrl: "swiss.png",
     sellId: "chf1",
     buyId: "chf2",
+    max: 30000,
   },
   {
     code: "CAD",
@@ -72,6 +80,7 @@ export const intialValueChart = [
     flagUrl: "canada.png",
     sellId: "cad1",
     buyId: "cad2",
+    max: 21000,
   },
   {
     code: "AUD",
@@ -79,6 +88,7 @@ export const intialValueChart = [
     flagUrl: "australia.png",
     sellId: "aud1",
     buyId: "aud2",
+    max: 19500,
   },
   {
     code: "SEK",
@@ -86,6 +96,7 @@ export const intialValueChart = [
     flagUrl: "korona.png",
     sellId: "sek1",
     buyId: "sek2",
+    max: 31000,
   },
   {
     code: "NOK",
@@ -93,6 +104,7 @@ export const intialValueChart = [
     flagUrl: "norway.png",
     sellId: "nok2",
     buyId: "nok1",
+    max: 3000,
   },
 
   {
@@ -101,6 +113,7 @@ export const intialValueChart = [
     flagUrl: "thai.jpg",
     sellId: "thb1",
     buyId: "thb2",
+    max: 1000,
   },
   {
     code: "SGD",
@@ -108,6 +121,7 @@ export const intialValueChart = [
     flagUrl: "singapore.png",
     sellId: "sgd1",
     buyId: "sgd2",
+    max: 19500,
   },
   {
     code: "HKD",
@@ -115,6 +129,7 @@ export const intialValueChart = [
     flagUrl: "hong-kong.png",
     sellId: "hkd1",
     buyId: "hkd2",
+    max: 3500,
   },
   {
     code: "AZN",
@@ -122,6 +137,7 @@ export const intialValueChart = [
     flagUrl: "azerbaijan.png",
     sellId: "azn1",
     buyId: "azn2",
+    max: 15500,
   },
   {
     code: "AMD",
@@ -129,6 +145,7 @@ export const intialValueChart = [
     flagUrl: "armenia.png",
     sellId: "amd1",
     buyId: "amd2",
+    max: 600,
   },
   {
     code: "AFG",
@@ -136,6 +153,7 @@ export const intialValueChart = [
     flagUrl: "afghanistan.png",
     sellId: "afn1",
     buyId: "afn2",
+    max: 400,
   },
   {
     code: "DKK",
@@ -143,6 +161,7 @@ export const intialValueChart = [
     flagUrl: "denmark.png",
     sellId: "dkk1",
     buyId: "dkk2",
+    max: 4500,
   },
   {
     code: "JPY",
@@ -150,6 +169,7 @@ export const intialValueChart = [
     flagUrl: "japan.png",
     sellId: "jpy1",
     buyId: "jpy2",
+    max: 3500,
   },
   {
     code: "SAR",
@@ -157,6 +177,7 @@ export const intialValueChart = [
     flagUrl: "saudi.png",
     sellId: "sar1",
     buyId: "sar2",
+    max: 7500,
   },
   {
     code: "INR",
@@ -164,6 +185,7 @@ export const intialValueChart = [
     flagUrl: "india.png",
     sellId: "inr1",
     buyId: "inr2",
+    max: 400,
   },
   {
     code: "MYR",
@@ -171,6 +193,7 @@ export const intialValueChart = [
     flagUrl: "malasya.png",
     sellId: "myr1",
     buyId: "myr2",
+    max: 6500,
   },
   {
     code: "KWD",
@@ -178,6 +201,7 @@ export const intialValueChart = [
     flagUrl: "kuwait.png",
     sellId: "kwd1",
     buyId: "kwd2",
+    max: 84000,
   },
   {
     code: "IQD",
@@ -185,6 +209,7 @@ export const intialValueChart = [
     flagUrl: "iraq.png",
     sellId: "iqd1",
     buyId: "iqd2",
+    max: 2000,
   },
   {
     code: "BHD",
@@ -192,6 +217,7 @@ export const intialValueChart = [
     flagUrl: "bahrain.png",
     sellId: "bhd1",
     buyId: "bhd2",
+    max: 70000,
   },
   {
     code: "OMR",
@@ -199,6 +225,7 @@ export const intialValueChart = [
     flagUrl: "oman.png",
     sellId: "omr1",
     buyId: "omr2",
+    max: 70000,
   },
   {
     code: "QAR",
@@ -206,5 +233,6 @@ export const intialValueChart = [
     flagUrl: "qatar.png",
     sellId: "qar1",
     buyId: "qar2",
+    max: 7500,
   },
 ];
