@@ -1568,6 +1568,19 @@ input[type="number"] {
   .dropdown-links-arrow-more {
     z-index: 2;
   }
+
+  .ads-image-wrapper {
+    flex-direction: column-reverse;
+  }
+  .ads-image-wrapper svg {
+    width: 100%;
+  }
+  .ads-text-wrapper {
+    height: unset;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 /* Loading animation */

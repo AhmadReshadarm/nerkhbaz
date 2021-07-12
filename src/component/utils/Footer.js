@@ -69,7 +69,7 @@ const Footer = () => {
               <Link to="/policy">Privacy and policy</Link>
             </li>
             <li className="policyItem">
-              <Link to="/advertising">Advertising</Link>
+              <Link to="/ads">Advertising</Link>
             </li>
           </ul>
         </nav>
