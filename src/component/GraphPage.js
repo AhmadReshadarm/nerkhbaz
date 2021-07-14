@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router";
 import Graph from "./utils/Graph";
 import { intialValueChart } from "../intials";
 import { graphConfig } from "../actions/graphConfig";
+import NotFound from "./NotFound";
 
 // assets import
 import { ReactComponent as Arrow } from "../assets/images/arrow-down.svg";
@@ -11,9 +13,11 @@ import { ReactComponent as More } from "../assets/images/more-down-arrow.svg";
 
 const GraphPage = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const path = window.location.pathname;
   const [dataSets, setData] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
+  const [isError, setError] = useState(true);
   const [intialValue, setValues] = useState({
     dataSetType: "Sell",
     period: "24",
@@ -25,6 +29,14 @@ const GraphPage = () => {
   useEffect(() => {
     const CancelToken = axios.CancelToken;
     const source = CancelToken.source();
+
+    intialValueChart.forEach((item, index) => {
+      if (item.code === path.slice(-3)) {
+        console.log(path.slice(-3), item.code);
+        setError(false);
+        return;
+      }
+    });
     axios
       .get(`https://powerful-earth-64232.herokuapp.com/api/archive${path}`, {
         cancelToken: source.token,
@@ -210,7 +222,27 @@ const GraphPage = () => {
     );
   }
 
-  if (isLoaded) {
+  if (!isLoaded) {
+    return (
+      <div className="loadingWrapper">
+        <div className="loading-screen">
+          <div className="loading">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <p>Loading</p>
+        <h1>Nerkhbaz</h1>
+      </div>
+    );
+  } else if (isError) {
+    setTimeout(() => {
+      history.push("/");
+    }, 5000);
+    return <NotFound />;
+  } else {
     return (
       <div
         onClick={() => {
@@ -378,21 +410,6 @@ const GraphPage = () => {
             options={options}
           />
         </div>
-      </div>
-    );
-  } else {
-    return (
-      <div className="loadingWrapper">
-        <div className="loading-screen">
-          <div className="loading">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-        <p>Loading</p>
-        <h1>Nerkhbaz</h1>
       </div>
     );
   }

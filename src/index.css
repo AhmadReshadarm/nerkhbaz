@@ -1142,6 +1142,7 @@ input[type="number"] {
   fill: #737373;
   border-radius: 50%;
   transition: 300ms;
+  z-index: 3;
 }
 
 .dropdown-links-arrow-more-hide {
@@ -1592,6 +1593,7 @@ input[type="number"] {
   flex-direction: column;
   justify-content: center;
   align-content: space-evenly;
+  z-index: 3;
 }
 
 .loadingWrapper p {

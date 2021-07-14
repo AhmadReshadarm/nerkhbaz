@@ -302,7 +302,7 @@ const Home = () => {
             })}
           </div>
         </div>
-        <Converter></Converter>
+        <Converter />
       </div>
     );
   }

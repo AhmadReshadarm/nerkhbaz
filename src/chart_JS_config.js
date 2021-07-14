@@ -16,7 +16,7 @@ for (let i = DATA_COUNT.length - 1; i >= 0; i--) {
   labels.push(DATA_COUNT[i]);
 }
 
-export const data = (canvas) => {
+const data = (canvas) => {
   let gradientColor = canvas
     .getContext("2d")
     .createLinearGradient(0, 0, 0, 200);
@@ -41,7 +41,7 @@ export const data = (canvas) => {
 };
 
 // config
-export const options = {
+const options = {
   responsive: true,
   plugins: {
     title: {

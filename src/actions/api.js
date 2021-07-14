@@ -8,10 +8,9 @@ export const fetchHero = (loaded, source) => async (dispatch) => {
   }
   // online connecton
   // "https://powerful-earth-64232.herokuapp.com/api/v1"
-  const fetchApi = await axios.get(
-    "https://powerful-earth-64232.herokuapp.com/api/v1",
-    { cancelToken: source.token }
-  );
+  const fetchApi = await axios.get("https://powerful-earth-64232.herokuapp.com/api/v1", {
+    cancelToken: source.token,
+  });
   const fetchCoins = await axios.get(
     "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2Cethereum%2Ctether&order=market_cap_desc&per_page=3&page=1&sparkline=true",
     { cancelToken: source.token }
